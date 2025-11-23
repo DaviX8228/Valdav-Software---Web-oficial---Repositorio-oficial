@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - Valdav Software</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --red-dark: #690c0c;
+            --red-strong: #c11718;
+            --white: #ffffff;
+            --red-glow: rgba(193, 23, 24, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background: var(--black);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(193, 23, 24, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            border-bottom: 1px solid var(--red-strong);
+            box-shadow: 0 4px 30px rgba(193, 23, 24, 0.2);
+        }
+
+        nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 37px;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            filter: drop-shadow(0 0 10px var(--red-glow));
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red-strong);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--red-strong);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, var(--red-dark) 0%, var(--black) 70%);
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 40%, var(--red-glow) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(105, 12, 12, 0.4) 0%, transparent 40%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .page-hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--white) 0%, var(--red-strong) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .last-updated {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: rgba(193, 23, 24, 0.1);
+            border-left: 4px solid var(--red-strong);
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .last-updated strong {
+            color: var(--red-strong);
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            color: var(--red-strong);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--red-strong);
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            color: var(--white);
+        }
+
+        .content-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section ul,
+        .content-section ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1rem;
+        }
+
+        .content-section strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: rgba(193, 23, 24, 0.1);
+            border-left: 4px solid var(--red-strong);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, var(--black) 0%, var(--red-dark) 100%);
+            color: var(--white);
+            padding: 4rem 3rem 2rem;
+            border-top: 1px solid rgba(193, 23, 24, 0.3);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--red-strong);
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--red-strong);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.9rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--red-strong);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(193, 23, 24, 0.3);
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                border-left: 2px solid var(--red-strong);
+                transition: right 0.4s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+                background: var(--red-strong);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+                background: var(--red-strong);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .content-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .logo {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="index.html">
+                <img src="ISOTIPO VD SOFTWARE_Fondo_transparente.png" alt="Valdav Software" class="logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="index.html#filosofia">Filosofía</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Términos y Condiciones</h1>
+            <p>Información legal sobre el uso de nuestros servicios</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="last-updated">
+            <strong>Última actualización:</strong> 22 de noviembre de 2025
+        </div>
+
+        <p>
+            Bienvenido a Valdav Software. Estos Términos y Condiciones describen las reglas y regulaciones para el uso de nuestro sitio web y servicios.
+        </p>
+
+        <div class="highlight-box">
+            <p>
+                Al acceder a este sitio web y utilizar nuestros servicios, aceptas estos términos y condiciones en su totalidad. No continúes usando el sitio web de Valdav Software si no aceptas todos los términos y condiciones establecidos en esta página.
+            </p>
+        </div>
+
+        <h2>1. Definiciones</h2>
+        <p>
+            En estos Términos y Condiciones, los siguientes términos tendrán los significados que se les atribuyen a continuación:
+        </p>
+        <ul>
+            <li><strong>"Empresa"</strong>, <strong>"Nosotros"</strong>, <strong>"Nuestro"</strong>: se refiere a Valdav Software.</li>
+            <li><strong>"Usuario"</strong>, <strong>"Tú"</strong>, <strong>"Tu"</strong>: se refiere a la persona que accede a nuestros servicios.</li>
+            <li><strong>"Servicios"</strong>: se refiere a todas las aplicaciones, productos y servicios proporcionados por Valdav Software.</li>
+            <li><strong>"Contenido"</strong>: se refiere a cualquier información, texto, gráficos, imágenes o materiales disponibles en nuestros servicios.</li>
+        </ul>
+
+        <h2>2. Aceptación de los Términos</h2>
+        <p>
+            Al utilizar nuestros servicios, confirmas que:
+        </p>
+        <ul>
+            <li>Tienes al menos 18 años de edad o cuentas con el consentimiento de tus padres o tutores legales.</li>
+            <li>Tienes la capacidad legal para aceptar estos términos.</li>
+            <li>No violarás ninguna ley local, estatal, nacional o internacional al usar nuestros servicios.</li>
+            <li>Proporcionarás información precisa y actualizada cuando sea requerida.</li>
+        </ul>
+
+        <h2>3. Uso de Nuestros Servicios</h2>
+        <h3>3.1 Licencia de Uso</h3>
+        <p>
+            Te otorgamos una licencia limitada, no exclusiva, no transferible y revocable para utilizar nuestros servicios de acuerdo con estos términos.
+        </p>
+
+        <h3>3.2 Restricciones</h3>
+        <p>
+            Aceptas no:
+        </p>
+        <ul>
+            <li>Modificar, adaptar, hackear o realizar ingeniería inversa de nuestros servicios.</li>
+            <li>Utilizar nuestros servicios para fines ilegales o no autorizados.</li>
+            <li>Transmitir virus, malware o cualquier código de naturaleza destructiva.</li>
+            <li>Intentar obtener acceso no autorizado a nuestros sistemas o redes.</li>
+            <li>Copiar, reproducir o distribuir contenido sin autorización expresa.</li>
+            <li>Utilizar robots, spiders o herramientas automatizadas para acceder a nuestros servicios.</li>
+        </ul>
+
+        <h2>4. Propiedad Intelectual</h2>
+        <p>
+            Todo el contenido presente en nuestros servicios, incluyendo pero no limitado a textos, gráficos, logos, iconos, imágenes, clips de audio, descargas digitales y compilaciones de datos, es propiedad de Valdav Software o de sus proveedores de contenido y está protegido por las leyes internacionales de derechos de autor.
+        </p>
+        <p>
+            Las marcas comerciales, marcas de servicio y logos utilizados en nuestros servicios son marcas registradas de Valdav Software. No está permitido usar estas marcas sin nuestro consentimiento previo por escrito.
+        </p>
+
+        <h2>5. Cuentas de Usuario</h2>
+        <h3>5.1 Registro</h3>
+        <p>
+            Para acceder a ciertas funciones de nuestros servicios, es posible que necesites crear una cuenta. Al hacerlo, te comprometes a:
+        </p>
+        <ul>
+            <li>Proporcionar información precisa, actual y completa.</li>
+            <li>Mantener la seguridad de tu contraseña y cuenta.</li>
+            <li>Notificarnos inmediatamente sobre cualquier uso no autorizado de tu cuenta.</li>
+            <li>Ser responsable de todas las actividades que ocurran bajo tu cuenta.</li>
+        </ul>
+
+        <h3>5.2 Suspensión y Terminación</h3>
+        <p>
+            Nos reservamos el derecho de suspender o terminar tu cuenta si:
+        </p>
+        <ul>
+            <li>Violas estos términos y condiciones.</li>
+            <li>Proporcionas información falsa o engañosa.</li>
+            <li>Realizas actividades fraudulentas o ilegales.</li>
+            <li>Tu comportamiento es perjudicial para otros usuarios o para nuestros servicios.</li>
+        </ul>
+
+        <h2>6. Privacidad y Protección de Datos</h2>
+        <p>
+            Tu privacidad es importante para nosotros. El uso de nuestros servicios también está sujeto a nuestra <a href="privacidad.html" style="color: var(--red-strong); text-decoration: none;">Política de Privacidad</a>, que describe cómo recopilamos, usamos y protegemos tu información personal.
+        </p>
+
+        <h2>7. Contenido del Usuario</h2>
+        <p>
+            Algunos de nuestros servicios pueden permitirte enviar, publicar o compartir contenido. Al hacerlo:
+        </p>
+        <ul>
+            <li>Retienes todos los derechos sobre tu contenido.</li>
+            <li>Nos otorgas una licencia mundial, no exclusiva y libre de regalías para usar, reproducir y distribuir tu contenido en relación con nuestros servicios.</li>
+            <li>Garantizas que tienes todos los derechos necesarios sobre el contenido que compartes.</li>
+            <li>Te responsabilizas del contenido que publicas y de cualquier consecuencia derivada de su publicación.</li>
+        </ul>
+
+        <h2>8. Pagos y Facturación</h2>
+        <h3>8.1 Servicios de Pago</h3>
+        <p>
+            Algunos de nuestros servicios pueden requerir el pago de tarifas. Al realizar un pago:
+        </p>
+        <ul>
+            <li>Aceptas pagar todas las tarifas aplicables.</li>
+            <li>Proporcionas información de pago precisa y actualizada.</li>
+            <li>Autorizas los cargos recurrentes si corresponde.</li>
+            <li>Entiendes que los precios están sujetos a cambios con previo aviso.</li>
+        </ul>
+
+        <h3>8.2 Reembolsos</h3>
+        <p>
+            Las políticas de reembolso varían según el servicio específico. Consulta la documentación de cada producto para obtener información detallada sobre reembolsos.
+        </p>
+
+        <h2>9. Limitación de Responsabilidad</h2>
+        <div class="highlight-box">
+            <p>
+                <strong>VALDAV SOFTWARE Y SUS AFILIADOS NO SERÁN RESPONSABLES DE NINGÚN DAÑO INDIRECTO, INCIDENTAL, ESPECIAL, CONSECUENTE O PUNITIVO, NI DE NINGUNA PÉRDIDA DE BENEFICIOS O INGRESOS, YA SEA INCURRIDA DIRECTA O INDIRECTAMENTE, NI DE NINGUNA PÉRDIDA DE DATOS, USO, FONDO DE COMERCIO U OTRAS PÉRDIDAS INTANGIBLES, RESULTANTES DE:</strong>
+            </p>
+        </div>
+        <ul>
+            <li>Tu acceso o uso (o incapacidad de acceso o uso) de nuestros servicios.</li>
+            <li>Cualquier conducta o contenido de terceros en nuestros servicios.</li>
+            <li>Cualquier contenido obtenido de nuestros servicios.</li>
+            <li>Acceso no autorizado, uso o alteración de tus transmisiones o contenido.</li>
+        </ul>
+
+        <h2>10. Indemnización</h2>
+        <p>
+            Aceptas indemnizar, defender y eximir de responsabilidad a Valdav Software, sus afiliados, directores, empleados y agentes de cualquier reclamación, daño, obligación, pérdida, responsabilidad, costo o deuda, y gasto (incluyendo honorarios de abogados) que surjan de:
+        </p>
+        <ul>
+            <li>Tu uso de nuestros servicios.</li>
+            <li>Tu violación de estos términos.</li>
+            <li>Tu violación de derechos de terceros.</li>
+            <li>Cualquier contenido que publiques o compartas.</li>
+        </ul>
+
+        <h2>11. Modificaciones de los Términos</h2>
+        <p>
+            Nos reservamos el derecho de modificar estos términos en cualquier momento. Cuando lo hagamos:
+        </p>
+        <ul>
+            <li>Publicaremos los términos actualizados en esta página.</li>
+            <li>Actualizaremos la fecha de "Última actualización".</li>
+            <li>Notificaremos a los usuarios registrados por correo electrónico si los cambios son significativos.</li>
+            <li>Tu uso continuado de nuestros servicios después de los cambios constituye tu aceptación de los nuevos términos.</li>
+        </ul>
+
+        <h2>12. Ley Aplicable</h2>
+        <p>
+            Estos términos se regirán e interpretarán de acuerdo con las leyes de México, sin dar efecto a ningún principio de conflictos de leyes. Cualquier disputa relacionada con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de México.
+        </p>
+
+        <h2>13. Resolución de Disputas</h2>
+        <p>
+            En caso de cualquier controversia o reclamación que surja de estos términos:
+        </p>
+        <ul>
+            <li>Primero intentaremos resolver la disputa de manera informal contactándonos directamente.</li>
+            <li>Si no se puede resolver informalmente en un plazo de 30 días, ambas partes acuerdan someterse a mediación.</li>
+            <li>Solo después de agotar la mediación se podrá proceder a un arbitraje vinculante o litigio.</li>
+        </ul>
+
+        <h2>14. Divisibilidad</h2>
+        <p>
+            Si alguna disposición de estos términos se considera inválida o inaplicable, dicha disposición se eliminará o limitará en la medida mínima necesaria, y las disposiciones restantes continuarán en pleno vigor y efecto.
+        </p>
+
+        <h2>15. Renuncia</h2>
+        <p>
+            La falta de ejercicio por parte de Valdav Software de cualquier derecho o disposición de estos términos no constituirá una renuncia a dicho derecho o disposición.
+        </p>
+
+        <h2>16. Contacto</h2>
+        <p>
+            Si tienes preguntas sobre estos Términos y Condiciones, puedes contactarnos:
+        </p>
+        <ul>
+            <li><strong>Por correo electrónico:</strong> <a href="mailto:aprendix.oficial@gmail.com" style="color: var(--red-strong); text-decoration: none;">aprendix.oficial@gmail.com</a></li>
+            <li><strong>A través de nuestro formulario de contacto</strong> en el sitio web</li>
+        </ul>
+
+        <div class="highlight-box" style="margin-top: 3rem;">
+            <p>
+                <strong>Estos términos constituyen el acuerdo completo entre tú y Valdav Software con respecto al uso de nuestros servicios y reemplazan cualquier acuerdo anterior.</strong>
+            </p>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="LOGO_FINAL_OFICIAL_VALDAV_SOFTWARE_fondo transparente final.png" alt="VD Software", width="230">
+                <p>
+                    Innovando el futuro, una aplicación a la vez. Creamos software que transforma vidas y marca la diferencia.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terminos.html">Términos y condiciones</a></li>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Valdav Software®. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

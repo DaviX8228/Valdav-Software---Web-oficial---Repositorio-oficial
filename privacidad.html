@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - Valdav Software</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --red-dark: #690c0c;
+            --red-strong: #c11718;
+            --white: #ffffff;
+            --red-glow: rgba(193, 23, 24, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background: var(--black);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(193, 23, 24, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            border-bottom: 1px solid var(--red-strong);
+            box-shadow: 0 4px 30px rgba(193, 23, 24, 0.2);
+        }
+
+        nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 37px;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            filter: drop-shadow(0 0 10px var(--red-glow));
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red-strong);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--red-strong);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, var(--red-dark) 0%, var(--black) 70%);
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 30% 40%, var(--red-glow) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(105, 12, 12, 0.4) 0%, transparent 40%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .page-hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--white) 0%, var(--red-strong) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .last-updated {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: rgba(193, 23, 24, 0.1);
+            border-left: 4px solid var(--red-strong);
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .last-updated strong {
+            color: var(--red-strong);
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            color: var(--red-strong);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--red-strong);
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            color: var(--white);
+        }
+
+        .content-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section ul,
+        .content-section ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1rem;
+        }
+
+        .content-section strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: rgba(193, 23, 24, 0.1);
+            border-left: 4px solid var(--red-strong);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, var(--black) 0%, var(--red-dark) 100%);
+            color: var(--white);
+            padding: 4rem 3rem 2rem;
+            border-top: 1px solid rgba(193, 23, 24, 0.3);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--red-strong);
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--red-strong);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.9rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--red-strong);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(193, 23, 24, 0.3);
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                border-left: 2px solid var(--red-strong);
+                transition: right 0.4s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+                background: var(--red-strong);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+                background: var(--red-strong);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .content-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .logo {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="index.html">
+                <img src="ISOTIPO VD SOFTWARE_Fondo_transparente.png" alt="Valdav Software" class="logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="index.html#filosofia">Filosofía</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Política de Privacidad</h1>
+            <p>Tu privacidad es nuestra prioridad</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="last-updated">
+            <strong>Última actualización:</strong> 22 de noviembre de 2025
+        </div>
+
+        <p>
+            En Valdav Software, nos tomamos muy en serio la privacidad de nuestros usuarios. Esta Política de Privacidad
+            describe cómo recopilamos, usamos, almacenamos y protegemos tu información personal cuando utilizas nuestros
+            servicios.
+        </p>
+
+        <div class="highlight-box">
+            <p>
+                <strong>Al utilizar nuestros servicios, aceptas las prácticas descritas en esta Política de Privacidad.
+                    Si no estás de acuerdo con estas prácticas, por favor no utilices nuestros servicios.</strong>
+            </p>
+        </div>
+
+        <h2>1. Información que Recopilamos</h2>
+
+        <h3>1.1 Información que Proporcionas Directamente</h3>
+        <p>
+            Recopilamos información que nos proporcionas voluntariamente cuando:
+        </p>
+        <ul>
+            <li><strong>Creas una cuenta:</strong> nombre, correo electrónico, contraseña, fecha de nacimiento.</li>
+            <li><strong>Usas nuestros servicios:</strong> preferencias, configuraciones, contenido que creas o
+                compartes.</li>
+            <li><strong>Nos contactas:</strong> mensajes, consultas, solicitudes de soporte.</li>
+            <li><strong>Participas en encuestas:</strong> opiniones, comentarios, sugerencias.</li>
+            <li><strong>Realizas pagos:</strong> información de facturación (procesada de forma segura por terceros).
+            </li>
+        </ul>
+
+        <h3>1.2 Información Recopilada Automáticamente</h3>
+        <p>
+            Cuando utilizas nuestros servicios, recopilamos automáticamente cierta información:
+        </p>
+        <ul>
+            <li><strong>Información del dispositivo:</strong> modelo, sistema operativo, identificadores únicos,
+                configuración del dispositivo.</li>
+            <li><strong>Información de uso:</strong> páginas visitadas, funciones utilizadas, tiempo de uso, patrones de
+                interacción.</li>
+            <li><strong>Información de ubicación:</strong> dirección IP, ubicación aproximada basada en IP (con tu
+                consentimiento para ubicación precisa).</li>
+            <li><strong>Cookies y tecnologías similares:</strong> identificadores de sesión, preferencias, historial de
+                navegación.</li>
+            <li><strong>Datos de registro:</strong> actividad del servidor, errores, diagnósticos de rendimiento.</li>
+        </ul>
+
+        <h3>1.3 Información de Terceros</h3>
+        <p>
+            Podemos recibir información sobre ti de terceras partes:
+        </p>
+        <ul>
+            <li>Servicios de autenticación (Google, Apple, Facebook).</li>
+            <li>Socios comerciales y proveedores de servicios.</li>
+            <li>Fuentes públicamente disponibles.</li>
+            <li>Otros usuarios que te inviten o mencionen.</li>
+        </ul>
+
+        <h2>2. Cómo Utilizamos Tu Información</h2>
+        <p>
+            Utilizamos la información recopilada para:
+        </p>
+
+        <h3>2.1 Proporcionar y Mejorar Nuestros Servicios</h3>
+        <ul>
+            <li>Crear y administrar tu cuenta.</li>
+            <li>Procesar transacciones y enviar notificaciones relacionadas.</li>
+            <li>Proporcionar soporte al cliente y responder a tus consultas.</li>
+            <li>Personalizar tu experiencia y ofrecer contenido relevante.</li>
+            <li>Desarrollar nuevas funciones y servicios.</li>
+            <li>Analizar el uso y optimizar el rendimiento.</li>
+        </ul>
+
+        <h3>2.2 Comunicación</h3>
+        <ul>
+            <li>Enviarte actualizaciones sobre nuestros servicios.</li>
+            <li>Notificarte sobre cambios en nuestras políticas.</li>
+            <li>Responder a tus preguntas y solicitudes.</li>
+            <li>Enviarte información promocional (con tu consentimiento).</li>
+            <li>Realizar encuestas y solicitar feedback.</li>
+        </ul>
+
+        <h3>2.3 Seguridad y Protección</h3>
+        <ul>
+            <li>Detectar, prevenir y responder a fraudes y actividades ilegales.</li>
+            <li>Proteger la seguridad de nuestros usuarios y servicios.</li>
+            <li>Hacer cumplir nuestros términos y políticas.</li>
+            <li>Verificar identidades y autenticación.</li>
+            <li>Realizar copias de seguridad y recuperación de datos.</li>
+        </ul>
+
+        <h3>2.4 Cumplimiento Legal</h3>
+        <ul>
+            <li>Cumplir con obligaciones legales y regulatorias.</li>
+            <li>Responder a solicitudes legales de autoridades.</li>
+            <li>Proteger nuestros derechos, propiedad y seguridad.</li>
+            <li>Resolver disputas y hacer cumplir acuerdos.</li>
+        </ul>
+
+        <h2>3. Compartir Tu Información</h2>
+        <p>
+            No vendemos tu información personal. Podemos compartir tu información en las siguientes circunstancias:
+        </p>
+
+        <h3>3.1 Con Tu Consentimiento</h3>
+        <p>
+            Compartiremos tu información cuando nos des permiso explícito para hacerlo.
+        </p>
+
+        <h3>3.2 Proveedores de Servicios</h3>
+        <p>
+            Compartimos información con terceros que nos ayudan a operar nuestros servicios:
+        </p>
+        <ul>
+            <li>Servicios de hosting y almacenamiento en la nube.</li>
+            <li>Procesadores de pago.</li>
+            <li>Servicios de análisis y métricas.</li>
+            <li>Plataformas de comunicación y correo electrónico.</li>
+            <li>Servicios de atención al cliente.</li>
+        </ul>
+
+        <h3>3.3 Requisitos Legales</h3>
+        <p>
+            Podemos divulgar información si es requerido por ley o si creemos de buena fe que es necesario para:
+        </p>
+        <ul>
+            <li>Cumplir con procesos legales (citaciones, órdenes judiciales).</li>
+            <li>Proteger los derechos, propiedad o seguridad de Valdav Software, nuestros usuarios o el público.</li>
+            <li>Detectar, prevenir o abordar fraude, seguridad o problemas técnicos.</li>
+        </ul>
+
+        <h3>3.4 Transferencias Comerciales</h3>
+        <p>
+            En caso de fusión, adquisición o venta de activos, tu información puede ser transferida. Te notificaremos
+            antes de que tu información sea transferida y esté sujeta a una política de privacidad diferente.
+        </p>
+
+        <h2>4. Almacenamiento y Seguridad</h2>
+
+        <h3>4.1 Almacenamiento de Datos</h3>
+        <p>
+            Tus datos se almacenan en servidores seguros. Implementamos medidas técnicas y organizativas apropiadas para
+            proteger tu información:
+        </p>
+        <ul>
+            <li>Encriptación de datos en tránsito y en reposo.</li>
+            <li>Controles de acceso estrictos.</li>
+            <li>Monitoreo continuo de seguridad.</li>
+            <li>Auditorías de seguridad regulares.</li>
+            <li>Copias de seguridad automatizadas.</li>
+        </ul>
+
+        <h3>4.2 Retención de Datos</h3>
+        <p>
+            Conservamos tu información personal mientras:
+        </p>
+        <ul>
+            <li>Tu cuenta esté activa.</li>
+            <li>Sea necesario para proporcionar nuestros servicios.</li>
+            <li>Sea requerido por ley o para fines legítimos de negocio.</li>
+            <li>No solicites su eliminación.</li>
+        </ul>
+
+        <h3>4.3 Limitaciones de Seguridad</h3>
+        <div class="highlight-box">
+            <p>
+                Si bien implementamos medidas de seguridad sólidas, ningún sistema es 100% seguro. No podemos garantizar
+                la seguridad absoluta de tu información. Es importante que mantengas segura tu contraseña y nos
+                notifiques inmediatamente de cualquier uso no autorizado de tu cuenta.
+            </p>
+        </div>
+
+        <h2>5. Tus Derechos y Opciones</h2>
+        <p>
+            Tienes los siguientes derechos respecto a tu información personal:
+        </p>
+
+        <h3>5.1 Acceso y Portabilidad</h3>
+        <ul>
+            <li>Solicitar una copia de los datos personales que tenemos sobre ti.</li>
+            <li>Recibir tus datos en un formato estructurado y de uso común.</li>
+            <li>Transferir tus datos a otro servicio.</li>
+        </ul>
+
+        <h3>5.2 Corrección y Actualización</h3>
+        <ul>
+            <li>Actualizar tu información de perfil en cualquier momento.</li>
+            <li>Solicitar la corrección de datos inexactos o incompletos.</li>
+        </ul>
+
+        <h3>5.3 Eliminación</h3>
+        <ul>
+            <li>Eliminar tu cuenta y datos asociados.</li>
+            <li>Solicitar la eliminación de información específica.</li>
+            <li>Revocar consentimientos previamente otorgados.</li>
+        </ul>
+
+        <h3>5.4 Restricción y Objeción</h3>
+        <ul>
+            <li>Limitar cómo procesamos tus datos.</li>
+            <li>Objetar ciertos tipos de procesamiento.</li>
+            <li>Optar por no recibir comunicaciones de marketing.</li>
+        </ul>
+
+        <h3>5.5 Ejercicio de Derechos</h3>
+        <p>
+            Para ejercer cualquiera de estos derechos, contáctanos en: <a href="mailto:aprendix.oficial@gmail.com"
+                style="color: var(--red-strong); text-decoration: none;">aprendix.oficial@gmail.com</a>
+        </p>
+
+        <h2>6. Cookies y Tecnologías de Seguimiento</h2>
+        <p>
+            Utilizamos cookies y tecnologías similares para:
+        </p>
+        <ul>
+            <li><strong>Cookies esenciales:</strong> necesarias para el funcionamiento básico.</li>
+            <li><strong>Cookies de rendimiento:</strong> para analizar cómo usas nuestros servicios.</li>
+            <li><strong>Cookies funcionales:</strong> para recordar tus preferencias.</li>
+            <li><strong>Cookies de publicidad:</strong> para mostrarte anuncios relevantes (con tu consentimiento).</li>
+        </ul>
+        <p>
+            Puedes controlar las cookies a través de la configuración de tu navegador. Ten en cuenta que deshabilitar
+            ciertas cookies puede afectar la funcionalidad de nuestros servicios.
+        </p>
+
+        <h2>7. Privacidad de Menores</h2>
+        <p>
+            Nuestros servicios no están dirigidos a menores de 13 años. No recopilamos intencionalmente información
+            personal de menores de 13 años. Si descubrimos que hemos recopilado información de un menor de 13 años,
+            eliminaremos esa información inmediatamente.
+        </p>
+        <p>
+            Si eres padre o tutor y crees que tu hijo nos ha proporcionado información personal, contáctanos de
+            inmediato.
+        </p>
+
+        <h2>8. Transferencias Internacionales</h2>
+        <p>
+            Tu información puede ser transferida y almacenada en servidores ubicados fuera de tu país de residencia. Nos
+            aseguramos de que cualquier transferencia internacional de datos cumpla con las leyes de protección de datos
+            aplicables y que se implementen salvaguardias adecuadas.
+        </p>
+
+        <h2>9. Enlaces a Terceros</h2>
+        <p>
+            Nuestros servicios pueden contener enlaces a sitios web o servicios de terceros. No somos responsables de
+            las prácticas de privacidad de estos terceros. Te recomendamos leer las políticas de privacidad de cualquier
+            sitio web que visites.
+        </p>
+
+        <h2>10. Cambios a esta Política</h2>
+        <p>
+            Podemos actualizar esta Política de Privacidad periódicamente. Cuando lo hagamos:
+        </p>
+        <ul>
+            <li>Publicaremos la política actualizada en esta página.</li>
+            <li>Actualizaremos la fecha de "Última actualización".</li>
+            <li>Te notificaremos por correo electrónico o a través de nuestros servicios si los cambios son
+                significativos.</li>
+            <li>Tu uso continuado de nuestros servicios después de los cambios constituye tu aceptación de la política
+                actualizada.</li>
+        </ul>
+
+        <h2>11. Privacidad en Aplicaciones Móviles</h2>
+        <p>
+            Nuestras aplicaciones móviles pueden solicitar permisos para acceder a:
+        </p>
+        <ul>
+            <li><strong>Cámara:</strong> para escanear documentos o tomar fotos.</li>
+            <li><strong>Micrófono:</strong> para funciones de audio.</li>
+            <li><strong>Ubicación:</strong> para funciones basadas en ubicación.</li>
+            <li><strong>Almacenamiento:</strong> para guardar archivos localmente.</li>
+            <li><strong>Notificaciones:</strong> para enviarte alertas y actualizaciones.</li>
+        </ul>
+        <p>
+            Puedes revocar estos permisos en cualquier momento a través de la configuración de tu dispositivo.
+        </p>
+
+        <h2>12. Inteligencia Artificial y Aprendizaje Automático</h2>
+        <p>
+            Algunos de nuestros servicios utilizan tecnologías de inteligencia artificial y aprendizaje automático.
+            Cuando utilices estas funciones:
+        </p>
+        <ul>
+            <li>Tus datos pueden ser utilizados para entrenar y mejorar nuestros modelos de IA.</li>
+            <li>Los datos se anonimizan y agregan cuando sea posible.</li>
+            <li>Puedes optar por no participar en el entrenamiento de modelos de IA.</li>
+            <li>Implementamos medidas para prevenir sesgos y garantizar resultados justos.</li>
+        </ul>
+
+        <h2>13. Contacto y Autoridad de Supervisión</h2>
+        <p>
+            Si tienes preguntas, inquietudes o quejas sobre esta Política de Privacidad o nuestras prácticas de datos,
+            contáctanos:
+        </p>
+        <ul>
+            <li><strong>Correo electrónico:</strong> <a href="mailto:aprendix.oficial@gmail.com"
+                    style="color: var(--red-strong); text-decoration: none;">aprendix.oficial@gmail.com</a></li>
+            <li><strong>Tiempo de respuesta:</strong> responderemos a tu solicitud dentro de 30 días.</li>
+        </ul>
+        <p>
+            Si no estás satisfecho con nuestra respuesta, tienes derecho a presentar una queja ante tu autoridad de
+            protección de datos local.
+        </p>
+
+        <div class="highlight-box" style="margin-top: 3rem;">
+            <p>
+                <strong>Tu privacidad es fundamental para nosotros. Nos comprometemos a ser transparentes sobre cómo
+                    manejamos tus datos y a proteger tu información personal con el más alto estándar de
+                    seguridad.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="LOGO_FINAL_OFICIAL_VALDAV_SOFTWARE_fondo transparente final.png" alt="VD Software", width="230">
+                <p>
+                    Innovando el futuro, una aplicación a la vez. Creamos software que transforma vidas y marca la diferencia.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terminos.html">Términos y condiciones</a></li>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Valdav Software®. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
